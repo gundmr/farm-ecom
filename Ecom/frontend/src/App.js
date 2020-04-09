@@ -1,5 +1,9 @@
 import React from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 import './App.css';
+
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
 
 function App() {
 
@@ -11,13 +15,14 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <div className ="grid-container">
         <header className="header">
             <div className="brand">
                 <button onClick={openMenu}>
                     &#9776;
                 </button>
-                <a href="index.html">Columbia Gorge Holly Farm</a>
+                <Link to="/">Columbia Gorge Holly Farm</Link>
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart</a>
@@ -36,26 +41,16 @@ function App() {
 
         <main className="main">
             <div className="content">
-                <ul className="products">
-                    <li>
-                        <div className="product">
-                            <img className="product-image" src="/images/ramen.png" alt="product"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Slim Shirt
-                                </a>
-                            </div>
-                            <div className="product-brand">Nike</div>
-                            <div className="product-price">$55</div>
-                        </div>
-                    </li>
-                </ul>
+              <Route path= "/product/:id" component={ProductScreen} />
+              <Route path= "/" exact={true} component={HomeScreen} />
+                
             </div>
         </main>
         <footer className="footer">
             All right reserved.
         </footer>
     </div>
+    </BrowserRouter>                
   );
 }
 
