@@ -5,7 +5,8 @@ export default {
         category: 'Holly',
         image: '/images/ramen.png',
         price: 55,
-        brand: 'Nike'
+        brand: 'Nike',
+        countInStock: 0
     },
     {
         _id: '2',
@@ -13,7 +14,8 @@ export default {
         category: 'Honey',
         image: '/images/ramen.png',
         price: 55,
-        brand: 'Nike'
+        brand: 'Nike',
+        countInStock: 2
     },
     {
         _id: '3',
@@ -21,6 +23,7 @@ export default {
         category: 'Holly', 
         image: '/images/ramen.png',
         price: 55,
-        brand: 'Nike'
+        brand: 'Nike',
+        countInStock: 10
     }]
 }
