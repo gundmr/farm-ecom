@@ -32,6 +32,7 @@ function HomeScreen(props) {
                 </div>
                 <div className="product-brand">{product.brand}</div>
                 <div className="product-price">${product.price}</div>
+                <div className="product-rating">{product.rating} Stars ({product.numReiews} Reviews)</div>
               </div>
             </li>)
         }
