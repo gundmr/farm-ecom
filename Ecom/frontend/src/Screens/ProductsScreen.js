@@ -142,6 +142,7 @@ function ProductsScreen(props) {
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th>Category</th>
             <th>Brand</th>
             <th>Action</th>
@@ -152,6 +153,7 @@ function ProductsScreen(props) {
             <td>{product._id}</td>
             <td>{product.name}</td>
             <td>{product.price}</td>
+            <td>{product.countInStock}</td>
             <td>{product.category}</td>
             <td>{product.brand}</td>
             <td>
