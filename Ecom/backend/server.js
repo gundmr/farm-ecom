@@ -1,6 +1,5 @@
 import express from 'express';
-import data from './data';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -39,5 +38,6 @@ app.get("/api/config/paypal", (req, res) => {
 // app.get("/api/products", (req, res) => {
 //   res.send(data.products);
 // });
+
 
 app.listen(5000, () => { console.log("Server started at http://localhost:5000") });
