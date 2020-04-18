@@ -44,7 +44,7 @@ function ProfileScreen(props) {
         <form onSubmit={submitHandler} >
           <ul className="form-container">
             <li>
-              <h2>User Profile</h2>
+              <h3>User Profile</h3>
             </li>
             <li>
               {loading && <div>Loading...</div>}

@@ -15,7 +15,7 @@ import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
 
-import mainLogo from'./images/logo.png';
+import mainLogo from'./images/logo-2.jpg';
 
 
 function App() {

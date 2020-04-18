@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-import Content from '../components/Content';
+//import Content from '../components/Content';
 
 function HomeScreen(props) {
   const productList = useSelector(state => state.productList);
@@ -26,22 +26,17 @@ function HomeScreen(props) {
     </div>
 {/* HOMEPAGE HERO */}
     <div className="hero-homepage">
+      <div>
+        
+      </div>
+        <h3> MAKE YOUR HOME FESTIVE WITH FRESH ARRANGEMENTS </h3>
 
-        <div>
-            <Content>
-                    <p>Hello, my name is Rachel. I'm a full stack engineer leveraging a background in Product Managment to build a more intuitive user experience on the web. </p>
-
-                    <p>I'm driven by working on products that delight users, solves complex customer problems with simple solutions, while driving significant business outcomes.</p>
-
-                    <p>While my experience is with MongoDB, JavaScript, React.js and Node.js, I am always striving to learn new things. </p>
-                    
-                
-            </Content>
-
-        </div>
     </div>
 
 {/* AVAILABLE PRODUCTS DISPLAY */}
+    <div className="product-display-homepage">
+        <h2>Our Products</h2>
+    </div>
       <ul className="products">
         {
           products.map(product =>
