@@ -54,7 +54,7 @@ function SigninScreen(props) {
           No Account?
         </li>
         <li>
-        <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your CGHF account</Link>
+        <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create an Account</Link>
         </li>
       </ul>
     </form>
