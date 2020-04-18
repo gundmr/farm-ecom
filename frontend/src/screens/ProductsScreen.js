@@ -8,8 +8,6 @@ function ProductsScreen(props) {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
-  const [brand, setBrand] = useState('');
-  const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const productList = useSelector(state => state.productList);
@@ -39,15 +37,13 @@ function ProductsScreen(props) {
     setPrice(product.price);
     setDescription(product.description);
     setImage(product.image);
-    setBrand(product.brand);
-    setCategory(product.category);
     setCountInStock(product.countInStock);
   }
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveProduct({
       _id: id,
-      name, price, image, brand, category,
+      name, price, image,
       countInStock, description
     }));
   }
@@ -94,24 +90,10 @@ function ProductsScreen(props) {
               </input>
             </li>
             <li>
-              <label htmlFor="brand">
-                Brand
-          </label>
-              <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)}>
-              </input>
-            </li>
-            <li>
               <label htmlFor="countInStock">
                 CountInStock
           </label>
               <input type="text" name="countInStock" value={countInStock} id="countInStock" onChange={(e) => setCountInStock(e.target.value)}>
-              </input>
-            </li>
-            <li>
-              <label htmlFor="name">
-                Category
-          </label>
-              <input type="text" name="category" value={category} id="category" onChange={(e) => setCategory(e.target.value)}>
               </input>
             </li>
             <li>
@@ -141,8 +123,6 @@ function ProductsScreen(props) {
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Category</th>
-            <th>Brand</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -152,8 +132,6 @@ function ProductsScreen(props) {
             <td>{product.name}</td>
             <td>{product.price}</td>
             <td>{product.countInStock}</td>
-            <td>{product.category}</td>
-            <td>{product.brand}</td>
             <td>
               <button className="button" onClick={() => openModal(product)} >Edit</button>
               {' '}
