@@ -15,6 +15,9 @@ import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
 
+import mainLogo from'./images/logo.png';
+
+
 function App() {
 
   const userSignin = useSelector(state => state.userSignin);
@@ -31,10 +34,12 @@ function App() {
       <div className="grid-container">
         <header className="header">
           <div className="brand">
-            <button onClick={openMenu}>
+            {/* <button onClick={openMenu}>
               &#9776;
-        </button>
-            <Link to="/" >amazona</Link>
+        </button> */}
+            <Link to="/" >
+            <img  src={mainLogo} width="25%" alt="fireSpot"/>
+            </Link>
           </div>
           <div className="header-links">
             <a href="cart.html">Cart</a>
@@ -55,7 +60,8 @@ function App() {
             )}
           </div>
         </header>
-        <aside className="sidebar">
+        {/* SIDE BAR - NOT NEEDED WITH ONLY ONE PRODUCT */}
+        {/* <aside className="sidebar">
           <h3>Shopping Categories</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>x</button>
           <ul>
@@ -68,7 +74,7 @@ function App() {
             </li>
 
           </ul>
-        </aside>
+        </aside> */}
         <main className="main">
           <div className="content">
             <Route path="/orders" component={OrdersScreen} />
