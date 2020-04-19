@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import { detailsOrder, payOrder } from '../actions/orderActions';
 import PaypalButton from '../components/PayPalButton';
 function OrderScreen(props) {
 
@@ -18,7 +16,7 @@ function OrderScreen(props) {
     }
     return () => {
     };
-  }, [successPay]);
+  }, [successPay, dispatch, props.history, props.match.params.id]);
 
   const handleSuccessPayment = (paymentResult) => {
     dispatch(payOrder(order, paymentResult));
@@ -26,10 +24,10 @@ function OrderScreen(props) {
 
   const orderDetails = useSelector(state => state.orderDetails);
   const { loading, order, error } = orderDetails;
-  const payHandler = () => { };
+  //const payHandler = () => { };
   console.log(orderDetails)
 
-  return loading ? <div>Loading ...</div> : error ? <div>{error}</div> :
+  return loading ? <div>Loading ...</div> : error ? <div>{errorPay}</div> :
 
     <div>
       <div className="placeorder">

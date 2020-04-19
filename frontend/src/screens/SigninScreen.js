@@ -18,11 +18,11 @@ function SigninScreen(props) {
     return () => {
       //
     };
-  }, [userInfo]);;
+  }, [userInfo, props.history, redirect]);;
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    dispatch(signin(email, password,));
 
   }
   return <div className="form">

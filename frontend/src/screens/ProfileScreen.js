@@ -25,7 +25,10 @@ function ProfileScreen(props) {
 
   const myOrderList = useSelector(state => state.myOrderList);
   const { loading: loadingOrders, orders, error: errorOrders } = myOrderList;
+
+  
   useEffect(() => {
+
     if (userInfo) {
       console.log(userInfo.name)
       setEmail(userInfo.email);
@@ -36,7 +39,7 @@ function ProfileScreen(props) {
     return () => {
 
     };
-  }, [userInfo])
+  }, [userInfo, dispatch])
 
   return <div className="profile">
     <div className="profile-info">
