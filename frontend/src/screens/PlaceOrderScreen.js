@@ -37,7 +37,7 @@ useEffect(() => {
       props.history.push("/order/" + order._id);
     }
 
-  }, [success, props.history, order._id]);
+  }, [success, props.history]);
 
    const checkoutHandler = () => {
      props.history.push("/signin?redirect=shipping");
