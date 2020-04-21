@@ -1,12 +1,12 @@
+#API
 .env
-*.env
 
 #dependancies
 ./node_modules
 /node_modules
 node_modules
 
-#API
-*.env
+
+
 
 
