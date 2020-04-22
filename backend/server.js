@@ -7,7 +7,7 @@ import productRoute from './routes/productRoute';
 import orderRoute from './routes/orderRoute';
 
 
-const mongodbUrl = config.MONGODB_URL;
+const mongodbUrl = process.env.MONGODB_URI || config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
