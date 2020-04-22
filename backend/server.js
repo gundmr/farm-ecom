@@ -37,11 +37,16 @@ app.get("/api/config/paypal", (req, res) => {
 //   res.send(data.products);
 // });
 
-app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '/frontend/index.html')));
+//app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '/frontend/index.html')));
 
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
+
+const path = require('path');
+const serveStatic = require('serve-static');
+
+app.use(serveStatic(path.join(__dirname, 'dist')));
 
 
 const PORT = process.env.PORT || 5000;
