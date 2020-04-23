@@ -16,7 +16,7 @@ var _orderRoute = _interopRequireDefault(require("./routes/orderRoute"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var mongodbUrl = _config["default"].MONGODB_URL;
+var mongodbUrl = process.env.MONGODB_URI || _config["default"].MONGODB_URL;
 
 _mongoose["default"].connect(mongodbUrl, {
   useNewUrlParser: true,
@@ -32,7 +32,7 @@ app.use("/api/users", _userRoute["default"]);
 app.use("/api/products", _productRoute["default"]);
 app.use("/api/orders", _orderRoute["default"]);
 app.get("/api/config/paypal", function (req, res) {
-  res.send(_config["default"].PAYPAL_CLIENT_ID);
+  res.send(process.env.PAYPAL_CLIENT_ID || _config["default"].PAYPAL_CLIENT_ID);
 }); // app.get("/api/products/:id", (req, res) => {
 //   const productId = req.params.id;
 //   const product = data.products.find(x => x._id === productId);
@@ -44,12 +44,13 @@ app.get("/api/config/paypal", function (req, res) {
 // app.get("/api/products", (req, res) => {
 //   res.send(data.products);
 // });
-
-app.get('/', function (req, res, next) {
-  return res.sendFile(path.join(__dirname, '/frontend/index.html'));
-}); // app.get('*', (req, res) => {
+//app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '/frontend/index.html')));
+// app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
+// const path = require('path');
+// const serveStatic = require('serve-static');
+// app.use(serveStatic(path.join(__dirname, 'dist')));
 
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
