@@ -43,10 +43,10 @@ app.get("/api/config/paypal", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
 
-// const path = require('path');
-// const serveStatic = require('serve-static');
+const path = require('path');
+const serveStatic = require('serve-static');
 
-// app.use(serveStatic(path.join(__dirname, 'dist')));
+app.use(serveStatic(path.join(__dirname, 'dist')));
 
 
 const PORT = process.env.PORT || 5000;

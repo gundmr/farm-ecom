@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 var _express = _interopRequireDefault(require("express"));
 
 var _config = _interopRequireDefault(require("./config"));
@@ -13,8 +15,6 @@ var _userRoute = _interopRequireDefault(require("./routes/userRoute"));
 var _productRoute = _interopRequireDefault(require("./routes/productRoute"));
 
 var _orderRoute = _interopRequireDefault(require("./routes/orderRoute"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var mongodbUrl = process.env.MONGODB_URI || _config["default"].MONGODB_URL;
 
@@ -48,10 +48,12 @@ app.get("/api/config/paypal", function (req, res) {
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
-// const path = require('path');
-// const serveStatic = require('serve-static');
-// app.use(serveStatic(path.join(__dirname, 'dist')));
 
+var path = require('path');
+
+var serveStatic = require('serve-static');
+
+app.use(serveStatic(path.join(__dirname, 'dist')));
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
   return console.log("Server started on PORT ".concat(PORT));

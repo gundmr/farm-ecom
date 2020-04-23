@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -8,8 +10,6 @@ exports.isAdmin = exports.isAuth = exports.getToken = void 0;
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
 var _config = _interopRequireDefault(require("./config"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var getToken = function getToken(user) {
   return _jsonwebtoken["default"].sign({
