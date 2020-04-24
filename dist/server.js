@@ -35,12 +35,15 @@ app.get("/api/config/paypal", function (req, res) {
   res.send(process.env.PAYPAL_CLIENT_ID || _config["default"].PAYPAL_CLIENT_ID);
 }); // try next
 //app.use(express.static(__dirname + '/frontend'))
+// app.use(express.static(__dirname + "build")); //
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "build", "index.html")); // <- try "index.html"
+// });
 
-app.use(_express["default"]["static"](__dirname + "build")); //
+if (process.env.NODE_ENV === 'production') {
+  app.use(_express["default"]["static"]('client/build'));
+}
 
-app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "build", "index.html")); // <- try "index.html"
-});
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
   return console.log("Server started on PORT ".concat(PORT));
