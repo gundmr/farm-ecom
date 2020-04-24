@@ -39,7 +39,7 @@ app.get("/api/config/paypal", function (req, res) {
 app.use(_express["default"]["static"](__dirname + "build")); //
 
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "build", index.html)); // <- try "index.html"
+  res.sendFile(path.resolve(__dirname, "build", "index.html")); // <- try "index.html"
 });
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
