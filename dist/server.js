@@ -40,10 +40,15 @@ app.get("/api/config/paypal", function (req, res) {
 //   res.sendFile(path.resolve(__dirname, "build", "index.html")); // <- try "index.html"
 // });
 
+var path = require('path');
+
 if (process.env.NODE_ENV === 'production') {
   app.use(_express["default"]["static"]('client/build'));
 }
 
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+});
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
   return console.log("Server started on PORT ".concat(PORT));
