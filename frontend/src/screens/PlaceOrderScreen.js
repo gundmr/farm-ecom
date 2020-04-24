@@ -32,6 +32,11 @@ function PlaceOrderScreen(props) {
     }));
   }
 
+  //update quanity from order to product db
+  // const updateQuantityHandler = (productId, qty) => {
+  //   dispatch(updateQuantity(productId, qty));
+  // }
+
 useEffect(() => {
     if (success) {
       props.history.push("/order/" + order._id);
@@ -108,6 +113,14 @@ useEffect(() => {
       <div className="placeorder-action">
         <ul>
           <li>
+          {/* <button className="button primary full-width" 
+              onClick={() => {
+                placeOrderHandler();
+                updateQuantityHandler();
+                }
+          }>
+            Place Order
+          </button> */}
             <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
           </li>
           <li>

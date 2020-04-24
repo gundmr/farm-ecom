@@ -71,4 +71,24 @@ const deleteProdcut = (productId) => async (dispatch, getState) => {
   }
 }
 
+//quantity update from order to product db
+//ONLY "UPDATING/PUT" PRODUCT INFO - DID NOT REDUCE # FROM ORDERS
+
+// const updateQuantity = (productId) => async (dispatch, getState) => {
+//   try {
+//     dispatch({ type: UPDATE_QUANTITY_REQUEST, payload: product });
+//     const { userSignin: { userInfo } } = getState();
+//     const { data } = await Axios.put('/api/products/' + product._id, product, {
+//         headers: {
+//           'Authorization': 'Bearer ' + userInfo.token
+//         }
+//       });
+//       dispatch({ type: UPDATE_QUANTITY_SUCCESS, payload: data });
+//     }
+//   catch (error) {
+//     dispatch({ type: UPDATE_QUANTITY_FAIL, payload: error.message });
+//   }
+// }
+
+
 export { listProducts, detailsProduct, saveProduct, deleteProdcut }
