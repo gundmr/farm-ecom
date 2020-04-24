@@ -25,9 +25,12 @@ app.get("/api/config/paypal", (req, res) => {
 })
 
 // try next
-app.use(express.static(__dirname + '/dist'));
-res.sendFile(path.join(__dirname + '/dist/index.html'));
+//app.use(express.static(__dirname + '/frontend'))
 
+app.use(express.static(__dirname + "build")); //
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", index.html)); // <- try "index.html"
+});
 
 
 
